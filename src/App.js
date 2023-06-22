@@ -8,7 +8,6 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { v4 as uuidv4 } from "uuid"; 
 
 
-
 const App = () => {
   const [formStructure, setFormStructure] = useState([
     {
@@ -19,7 +18,6 @@ const App = () => {
       is_required: true,
       multi_select: false,
     },
-
     {
       id:uuidv4(),
       title: "What is your gender",
@@ -66,9 +64,7 @@ const App = () => {
     if (!result.destination) {
       return; // Item was dropped outside of a droppable area
     }
-
     const { source, destination } = result;
-
     // Reorder the items in the formStructure array based on the drag and drop result
     const draggedItem = formStructure[source.index];
     const updatedFormStructure = Array.from(formStructure);
@@ -93,7 +89,7 @@ const App = () => {
                     {...provided.draggableProps}
                     onDragStart={(event) => handleDragStart(event, e.id)}
                   >
-                    {e.name === "Text Input" && (
+                    {e.name === "Text Input" && (     // Similar like conduction- if(e.name=="text input"){ return (<Div>) }
                       <Box
                         sx={{
                           bgcolor: "background.paper",
